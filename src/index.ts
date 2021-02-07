@@ -20,11 +20,11 @@ createConnection().then(async () => {
     
     // PostgreSQL
     const client = new Client({
-        user: 'postgres',
-        host: 'localhost',
-        port: 5432,
-        database: 'postgres',
-        password: 'defjam'
+        user: 'your user',
+        host: 'your localhost',
+        port: 5455,
+        database: 'your database',
+        password: 'your password'
     })
     client
        .connect()
