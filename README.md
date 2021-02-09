@@ -7,6 +7,6 @@ Uma API feita com POstgreSQL, node e Typescript, usamos o typeorm para nos ajuda
 
 {
     "title": String,
-    "description": String,
+    "description": String
 }
 
