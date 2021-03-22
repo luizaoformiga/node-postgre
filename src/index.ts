@@ -1,38 +1,19 @@
 import "reflect-metadata";
 import * as express from "express";
-import * as bodyParser from "body-parser";
 import { createConnection } from 'typeorm';
-import { Client } from 'pg';
-import route from "./routes";
+import route from "./routes/routes";
 import cors = require('cors');
 
-const app = express();
-const port = 3338;
-
-
-//condition
-createConnection().then(async () => {
+createConnection().then(async () => {  
+  const app = express();
+  const port = process.env.PORT || 3398;
+  
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
+  app.use(cors());
+  app.use(route);
     
-    // Configuration
-    app.use(bodyParser.json());
-    app.use(cors());
-    app.use(route);
-    
-    // PostgreSQL
-    const client = new Client({
-        user: 'your user',
-        host: 'your localhost',
-        port: 5455,
-        database: 'your database',
-        password: 'your password'
-    })
-    client
-       .connect()
-       .then(() => console.log('Postgre connected!'))
-       .catch(() => console.error("ERROR 404: NOT FOUND"));
-    
-    // execution
-    app.listen(port, () => console.log('API listering to port http://localhost:3338'));
+  app.listen(port, () => console.log(`API listering to port ${port}`));
 
 }).catch(err => console.log("NOT FOUND" + err));
 

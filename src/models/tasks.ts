@@ -22,5 +22,4 @@ export class Tasks {
 
     @UpdateDateColumn()
     update_at: Date;
- 
 }

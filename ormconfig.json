@@ -1,9 +1,9 @@
 {
    "type": "postgres",
    "host": "localhost",
-   "port": 5432,
+   "port": "port",
    "username": "postgres",
-   "password": "defjam",
+   "password": "secret password",
    "database": "postgres",
    "synchronize": true,
    "logging": false,
